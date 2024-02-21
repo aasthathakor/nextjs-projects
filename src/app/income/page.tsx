@@ -15,6 +15,19 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
+// import {
+//   Popover,
+//   PopoverContent,
+//   PopoverTrigger,
+// } from "@/components/ui/popover";
+// import { Calendar } from "@/components/ui/calendar";
+// import { format, formatDate } from "date-fns"
+// import { Calendar as CalendarIcon } from "lucide-react"
+
+// import { cn } from "@/lib/utils"
+
+
+
 
 const formSchema = z.object({
   income_id: z.string().min(2),
@@ -23,7 +36,9 @@ const formSchema = z.object({
   income: z.string(),
   pan_no: z.string(),
   talati_id: z.string(),
-  applyDate: z.string(),
+//   applyDate: z.date({
+//     required_error: "A Date is required.",
+// }),
 });
 export default function Talati() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -35,7 +50,7 @@ export default function Talati() {
         income: "",
         pan_no: "",
         talati_id: "",
-        applyDate: "",
+      
       
     },
   });
@@ -43,7 +58,7 @@ export default function Talati() {
   const handleSubmit = async (data: any) => {
     axios
       .post(
-        "",
+        "https://1366-2405-201-2006-7d89-a9d6-af84-c972-73ac.ngrok-free.app/income",
         data
       )
       .then(() => {
@@ -121,7 +136,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="status"
+                      placeholder="Enter income"
                       type="text"
                     />
                   </FormControl>
@@ -140,8 +155,8 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter date"
-                      type="date"
+                      placeholder="Enter pan no"
+                      type="text"
                     />
                   </FormControl>
                   <FormMessage />
@@ -159,26 +174,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Complain resolve date"
-                      type="date"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          />
-          <FormField
-            control={form.control}
-            name="applyDate"
-            render={({ field }) => {
-              return (
-                <FormItem>
-                  <FormLabel>Apply Date</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="enter apply date"
+                      placeholder="Enter Talati ID"
                       type="text"
                     />
                   </FormControl>
@@ -187,6 +183,47 @@ export default function Talati() {
               );
             }}
           />
+           {/* <FormField
+            control={form.control}
+            name="applyDate"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel>Date of Birth</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-[240px] pl-3 text-left font-normal",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value ? (
+                          formatDate(field.value, "PPP")
+                        ) : (
+                          <span>Pick a Date</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) =>
+                        date > new Date() || date < new Date("1900-01-01")
+                      }
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+                <FormMessage />
+              </FormItem>
+            )}
+          /> */}
           <Button type="submit">Submit</Button>
         </form>
       </Form>

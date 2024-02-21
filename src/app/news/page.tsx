@@ -35,7 +35,7 @@ const formSchema = z.object({
   news_title: z.string(),
   news_description: z.string(),
   news_date_time: z.date({
-    required_error: "A Birth Date is required.",
+    required_error: "A Date is required.",
   }),
   news_image: z.any(),
   talati_id: z.string(),
@@ -124,7 +124,7 @@ export default function Talati() {
                 )}
               />
 
-<FormField
+            <FormField
             control={form.control}
             name="news_date_time"
             render={({ field }) => (
