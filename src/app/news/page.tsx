@@ -72,6 +72,7 @@ export default function Talati() {
           onSubmit={form.handleSubmit(handleSubmit)}
           className="max-w-md w-full flex flex-col gap-4"
         >
+          <FormLabel className="flex flex-col items-center justify-between text-3xl font-bold" >News</FormLabel>
           <FormField
             control={form.control}
             name="news_id"

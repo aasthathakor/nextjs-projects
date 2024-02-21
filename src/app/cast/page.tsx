@@ -22,9 +22,7 @@ const formSchema = z.object({
   form_id: z.string().min(2),
   religion: z.string(),
   cast: z.string(),
-  applyDate: z.string(),
   talati_id: z.string(),
-  issueDate: z.string(),
 });
 export default function Talati() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -35,16 +33,15 @@ export default function Talati() {
         form_id: "",
         religion: "",
         cast: "",
-        applyDate: "",
         talati_id: "",
-        issueDate: "",
+
     },
   });
   //const handleSubmit = () => {};
   const handleSubmit = async (data: any) => {
     axios
       .post(
-        "",
+        "https://1366-2405-201-2006-7d89-a9d6-af84-c972-73ac.ngrok-free.app/cast",
         data
       )
       .then(() => {
@@ -54,12 +51,13 @@ export default function Talati() {
       .catch((err) => console.log(err));
   };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-20">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleSubmit)}
           className="max-w-md w-full flex flex-col gap-4"
         >
+          <FormLabel className="flex flex-col items-center justify-between text-3xl font-bold" >Cast</FormLabel>
           <FormField
             control={form.control}
             name="cast_id"
@@ -152,25 +150,6 @@ export default function Talati() {
           />
           <FormField
             control={form.control}
-            name="applyDate"
-            render={({ field }) => {
-              return (
-                <FormItem>
-                  <FormLabel>Apply Date</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Enter Date"
-                      type="date"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          />
-          <FormField
-            control={form.control}
             name="talati_id"
             render={({ field }) => {
               return (
@@ -188,25 +167,7 @@ export default function Talati() {
               );
             }}
           />
-          <FormField
-              control={form.control}
-              name="issueDate"
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel>Issue Date</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder="Enter issue Date"
-                        type="date"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
+         
           <Button type="submit">Submit</Button>
         </form>
       </Form>
