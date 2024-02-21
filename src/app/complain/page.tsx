@@ -12,43 +12,41 @@ import {
   FormControl,
 } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+
 
 const formSchema = z.object({
-  talati_id: z.string(),
-  talati_name: z.string().min(4),
-  talati_mail: z.string().email(),
-  talati_password: z.string().min(8),
-  talati_ph: z.string().min(10),
-  talati_sal: z.string(),
-  talati_gender: z.enum(["male", "female"], {
-    required_error: "You need to select a type.",
+  complain_id: z.string().min(2),
+  complain_title: z.string(),
+  complain_description: z.string(),
+  complain_status: z.enum(["true", "false"], {
+    required_error: "You need to select a notification type.",
   }),
-  talati_signature: z.string(),
-  village_id: z.string(),
+  complain_date: z.string(),
+  // complain_resolve_date: z.string(),
+  user_id: z.string(),
 });
 export default function Talati() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      talati_id:"",
-      talati_name:"", 
-      talati_mail:"", 
-      talati_password:"", 
-      talati_ph:"",
-      talati_sal:"",
-      talati_signature:"",
-      village_id:"",
+        complain_id: "",
+        complain_title: "",
+        complain_description: "",
+        complain_date: "",
+      
+        // complain_resolve_date: "",
+        user_id: "",
     },
   });
-  //const handleSubmit = () => {};
+  
   const handleSubmit = async (data: any) => {
     axios
       .post(
-        "https://ac12-2405-201-2006-7d89-1cda-7f31-fd25-a700.ngrok-free.app/talati",
+        "https://ac12-2405-201-2006-7d89-1cda-7f31-fd25-a700.ngrok-free.app/complain",
         data
       )
       .then(() => {
@@ -66,11 +64,11 @@ export default function Talati() {
         >
           <FormField
             control={form.control}
-            name="talati_id"
+            name="complain_id"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter ID</FormLabel>
+                  <FormLabel>Complain ID</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="Enter ID" type="text" />
                   </FormControl>
@@ -81,15 +79,15 @@ export default function Talati() {
           />
           <FormField
             control={form.control}
-            name="talati_name"
+            name="complain_title"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter Name:</FormLabel>
+                  <FormLabel>Complain Title</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Talati Name "
+                      placeholder="Complain Title"
                       type="text"
                     />
                   </FormControl>
@@ -100,47 +98,86 @@ export default function Talati() {
           />
           <FormField
                 control={form.control}
-                name="talati_gender"
+                name="complain_description"
                 render={({ field }) => (
                   <FormItem className="space-y-3">
-                    <FormLabel>Gender</FormLabel>
+                    <FormLabel>Complain description</FormLabel>
                     <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                        className=" space-y-3 "
-                      >
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="male" />
-                          </FormControl>
-                          <FormLabel className="font-normal">Male</FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="female"/>
-                          </FormControl>
-                          <FormLabel className="font-normal">Female</FormLabel>
-                        </FormItem>
-                      </RadioGroup>
-                    </FormControl>
+                    <Input
+                      {...field}
+                      placeholder="complain description "
+                      type="text"
+                    />
+                  </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-          <FormField
+          {/* <FormField
             control={form.control}
-            name="talati_mail"
+            name="complain_status"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter mail:</FormLabel>
+                  <FormLabel>Complain Status</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter mail-id"
-                      type="email"
+                      placeholder="status"
+                      type="text"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              );
+            }}
+          /> */}
+
+<FormField
+            control={form.control}
+            name="complain_status"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel>Status</FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className=" space-y-3 "
+                  >
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="true" />
+                      </FormControl>
+                      <FormLabel className="font-normal">True</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="false" />
+                      </FormControl>
+                      <FormLabel className="font-normal">False</FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+
+          <FormField
+            control={form.control}
+            name="complain_date"
+            render={({ field }) => {
+              return (
+                <FormItem>
+                  <FormLabel>Complain Date</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder="Enter date"
+                      type="date"
                     />
                   </FormControl>
                   <FormMessage />
@@ -148,17 +185,36 @@ export default function Talati() {
               );
             }}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
-            name="talati_password"
+            name="complain_resolve_date"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter Password</FormLabel>
+                  <FormLabel>Complain Resolve Data</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Password"
+                      placeholder="Complain resolve date"
+                      type="date"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              );
+            }}
+          /> */}
+          <FormField
+            control={form.control}
+            name="user_id"
+            render={({ field }) => {
+              return (
+                <FormItem>
+                  <FormLabel>User ID</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder="enter user id"
                       type="text"
                     />
                   </FormControl>
@@ -167,82 +223,6 @@ export default function Talati() {
               );
             }}
           />
-          <FormField
-            control={form.control}
-            name="talati_ph"
-            render={({ field }) => {
-              return (
-                <FormItem>
-                  <FormLabel>Enter phone-no:</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Enter phone-no"
-                      type="text"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          />
-          <FormField
-            control={form.control}
-            name="talati_sal"
-            render={({ field }) => {
-              return (
-                <FormItem>
-                  <FormLabel>Salary</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Enter Salary"
-                      type="text"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          />
-          <FormField
-              control={form.control}
-              name="talati_signature"
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel>Sign</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder="sign"
-                        type="text"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-          <FormField
-              control={form.control}
-              name="village_id"
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel>Village ID:</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder="Enter Village ID"
-                        type="text"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
           <Button type="submit">Submit</Button>
         </form>
       </Form>

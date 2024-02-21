@@ -12,43 +12,43 @@ import {
   FormControl,
 } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 
 const formSchema = z.object({
+  birth_id: z.string().min(2),
+  user_id: z.string().min(2),
+  child_name: z.string(),
+  birth_place: z.string(),
+  birth_date: z.string(),
+  father_name: z.string(),
+  mother_name: z.string(),
+  viliage_name: z.string(),
+  application_date: z.string(),
   talati_id: z.string(),
-  talati_name: z.string().min(4),
-  talati_mail: z.string().email(),
-  talati_password: z.string().min(8),
-  talati_ph: z.string().min(10),
-  talati_sal: z.string(),
-  talati_gender: z.enum(["male", "female"], {
-    required_error: "You need to select a type.",
-  }),
-  talati_signature: z.string(),
-  village_id: z.string(),
 });
 export default function Talati() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      talati_id:"",
-      talati_name:"", 
-      talati_mail:"", 
-      talati_password:"", 
-      talati_ph:"",
-      talati_sal:"",
-      talati_signature:"",
-      village_id:"",
+        birth_id: "",
+        user_id: "",
+        child_name: "",
+        birth_place: "",
+        birth_date: "",
+        father_name: "",
+        mother_name: "",
+        viliage_name: "",
+        application_date: "",
+        talati_id: "",
     },
   });
   //const handleSubmit = () => {};
   const handleSubmit = async (data: any) => {
     axios
       .post(
-        "https://ac12-2405-201-2006-7d89-1cda-7f31-fd25-a700.ngrok-free.app/talati",
+        "",
         data
       )
       .then(() => {
@@ -66,13 +66,13 @@ export default function Talati() {
         >
           <FormField
             control={form.control}
-            name="talati_id"
+            name="birth_id"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter ID</FormLabel>
+                  <FormLabel>Birth ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter ID" type="text" />
+                    <Input {...field} placeholder="Enter Birth ID" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -81,15 +81,15 @@ export default function Talati() {
           />
           <FormField
             control={form.control}
-            name="talati_name"
+            name="child_name"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter Name:</FormLabel>
+                  <FormLabel>Child Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Talati Name "
+                      placeholder="Enter child Name "
                       type="text"
                     />
                   </FormControl>
@@ -100,30 +100,17 @@ export default function Talati() {
           />
           <FormField
                 control={form.control}
-                name="talati_gender"
+                name="birth_place"
                 render={({ field }) => (
                   <FormItem className="space-y-3">
-                    <FormLabel>Gender</FormLabel>
+                    <FormLabel>Birth Place</FormLabel>
                     <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                        className=" space-y-3 "
-                      >
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="male" />
-                          </FormControl>
-                          <FormLabel className="font-normal">Male</FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="female"/>
-                          </FormControl>
-                          <FormLabel className="font-normal">Female</FormLabel>
-                        </FormItem>
-                      </RadioGroup>
-                    </FormControl>
+                    <Input
+                      {...field}
+                      placeholder="Enter child Name "
+                      type="text"
+                    />
+                  </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -131,16 +118,16 @@ export default function Talati() {
 
           <FormField
             control={form.control}
-            name="talati_mail"
+            name="birth_date"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter mail:</FormLabel>
+                  <FormLabel>Birth Date</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter mail-id"
-                      type="email"
+                      placeholder="Enter birth date"
+                      type="date"
                     />
                   </FormControl>
                   <FormMessage />
@@ -150,15 +137,15 @@ export default function Talati() {
           />
           <FormField
             control={form.control}
-            name="talati_password"
+            name="father_name"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter Password</FormLabel>
+                  <FormLabel>Father's Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Password"
+                      placeholder="Enter father name"
                       type="text"
                     />
                   </FormControl>
@@ -169,15 +156,15 @@ export default function Talati() {
           />
           <FormField
             control={form.control}
-            name="talati_ph"
+            name="mother_name"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Enter phone-no:</FormLabel>
+                  <FormLabel>Mother's Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter phone-no"
+                      placeholder="Enter Mother Name"
                       type="text"
                     />
                   </FormControl>
@@ -188,15 +175,15 @@ export default function Talati() {
           />
           <FormField
             control={form.control}
-            name="talati_sal"
+            name="viliage_name"
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Salary</FormLabel>
+                  <FormLabel>Village Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Salary"
+                      placeholder="Enter Village Name"
                       type="text"
                     />
                   </FormControl>
@@ -207,16 +194,16 @@ export default function Talati() {
           />
           <FormField
               control={form.control}
-              name="talati_signature"
+              name="application_date"
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Sign</FormLabel>
+                    <FormLabel>Application Date</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="sign"
-                        type="text"
+                        placeholder="Enter Application Date"
+                        type="date"
                       />
                     </FormControl>
                     <FormMessage />
@@ -226,15 +213,15 @@ export default function Talati() {
             />
           <FormField
               control={form.control}
-              name="village_id"
+              name="talati_id"
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Village ID:</FormLabel>
+                    <FormLabel>Talati ID:</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="Enter Village ID"
+                        placeholder="Enter talati ID"
                         type="text"
                       />
                     </FormControl>
