@@ -67,7 +67,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>Death Certificate ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter ID" type="text" />
+                    <Input {...field} placeholder="enter death certificate id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -84,7 +84,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter id "
+                      placeholder="enter form id "
                       type="text"
                     />
                   </FormControl>
@@ -102,7 +102,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="user id "
+                      placeholder="enter user id "
                       type="text"
                     />
                     </FormControl>
@@ -121,7 +121,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter death date"
+                      placeholder="enter death date"
                       type="date"
                     />
                   </FormControl>
@@ -140,7 +140,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Death Place"
+                      placeholder="enter death place"
                       type="text"
                     />
                   </FormControl>
@@ -178,7 +178,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Talati ID"
+                      placeholder="enter talati id"
                       type="text"
                     />
                   </FormControl>

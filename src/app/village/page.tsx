@@ -116,7 +116,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="status"
+                      placeholder="Enter talati ID"
                       type="text"
                     />
                   </FormControl>

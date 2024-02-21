@@ -81,7 +81,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>News ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="news ID" type="text" />
+                    <Input {...field} placeholder="enter news id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -98,7 +98,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="news title"
+                      placeholder="enter news title"
                       type="text"
                     />
                   </FormControl>
@@ -116,7 +116,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="description"
+                      placeholder="description of news"
                       type="text"
                     />
                   </FormControl>

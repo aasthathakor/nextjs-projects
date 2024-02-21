@@ -71,7 +71,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>Complain ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter ID" type="text" />
+                    <Input {...field} placeholder="Enter complain id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -88,7 +88,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Complain Title"
+                      placeholder="enter complain Title"
                       type="text"
                     />
                   </FormControl>
@@ -106,7 +106,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="complain description "
+                      placeholder="enter complain description "
                       type="text"
                     />
                   </FormControl>
@@ -177,7 +177,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter date"
+                      placeholder="enter complain date"
                       type="date"
                     />
                   </FormControl>

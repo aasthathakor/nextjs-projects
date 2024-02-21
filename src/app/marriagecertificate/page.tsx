@@ -67,7 +67,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>Marriage Certificate ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter ID" type="text" />
+                    <Input {...field} placeholder="enter certificate id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -84,7 +84,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Boy full name "
+                      placeholder="enter Boy full name "
                       type="text"
                     />
                   </FormControl>
@@ -102,7 +102,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter girl name "
+                      placeholder="enter girl full name "
                       type="text"
                     />
                   </FormControl>
@@ -121,7 +121,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Date"
+                      placeholder="enter date"
                       type="date"
                     />
                   </FormControl>
@@ -140,7 +140,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter place"
+                      placeholder="enter place"
                       type="text"
                     />
                   </FormControl>
@@ -159,7 +159,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter city"
+                      placeholder="enter city"
                       type="text"
                     />
                   </FormControl>
@@ -178,7 +178,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter signature"
+                      placeholder="enter signature of authority"
                       type="text"
                     />
                   </FormControl>

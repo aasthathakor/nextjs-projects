@@ -73,7 +73,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>Birth ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter Birth ID" type="text" />
+                    <Input {...field} placeholder="Enter Birth id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -108,7 +108,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter child Name "
+                      placeholder="Enter birth place "
                       type="text"
                     />
                   </FormControl>
@@ -222,7 +222,7 @@ export default function Talati() {
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="Enter talati ID"
+                        placeholder="Enter talati id"
                         type="text"
                       />
                     </FormControl>

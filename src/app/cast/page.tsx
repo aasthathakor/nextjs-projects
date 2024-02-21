@@ -66,7 +66,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>Cast ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter cast ID" type="text" />
+                    <Input {...field} placeholder="Enter cast id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -101,7 +101,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter id "
+                      placeholder="Enter form id "
                       type="text"
                     />
                   </FormControl>
@@ -139,7 +139,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter cast type"
+                      placeholder="Enter cast name"
                       type="text"
                     />
                   </FormControl>

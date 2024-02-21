@@ -83,7 +83,7 @@ export default function Talati() {
                 <FormItem>
                   <FormLabel>Income ID</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter ID" type="text" />
+                    <Input {...field} placeholder="enter income id" type="text" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -100,7 +100,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="user id"
+                      placeholder="enter user id"
                       type="text"
                     />
                   </FormControl>
@@ -118,7 +118,7 @@ export default function Talati() {
                     <FormControl>
                     <Input
                       {...field}
-                      placeholder="user name"
+                      placeholder="enter user name"
                       type="text"
                     />
                   </FormControl>
@@ -137,7 +137,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter income"
+                      placeholder="enter income ammount"
                       type="text"
                     />
                   </FormControl>
@@ -156,7 +156,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter pan no"
+                      placeholder="Enter pan number"
                       type="text"
                     />
                   </FormControl>
@@ -175,7 +175,7 @@ export default function Talati() {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter Talati ID"
+                      placeholder="enter talati id"
                       type="text"
                     />
                   </FormControl>
