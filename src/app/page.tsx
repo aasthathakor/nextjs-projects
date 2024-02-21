@@ -234,7 +234,7 @@ export default function Talati() {
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="Enter Village ID"
+                        placeholder="Enter Village id"
                         type="text"
                       />
                     </FormControl>
