@@ -36,9 +36,6 @@ const formSchema = z.object({
   income: z.string(),
   pan_no: z.string(),
   talati_id: z.string(),
-//   applyDate: z.date({
-//     required_error: "A Date is required.",
-// }),
 });
 export default function Talati() {
   const form = useForm<z.infer<typeof formSchema>>({
