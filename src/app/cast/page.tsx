@@ -149,19 +149,11 @@ export default function Talati() {
             }}
           />
           <FormField
-            control={form.control}
-            name="talati_id"
-            render={({ field }) => {
+            control={form.control} name="talati_id" render={({ field }) => {
               return (
                 <FormItem>
                   <FormLabel>Talati ID</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Enter talati ID"
-                      type="text"
-                    />
-                  </FormControl>
+                  <FormControl><Input {...field} placeholder="Enter talati ID" type="text"/></FormControl>
                   <FormMessage />
                 </FormItem>
               );
